@@ -1,0 +1,147 @@
+{
+  "AuthModule": {
+    "RecoveryPassword": "Восстановить Пароль",
+    "Username": "Электронная почта",
+    "Password": "Пароль",
+    "ConfirmPassword": "Подтвердите Пароль",
+    "RememberMe": "Запомнить Меня",
+    "SubmitLogin": "Войти",
+    "SubmitRegistration": "Зарегестрироваться",
+    "SubmitRecoveryPassword": "Восстановить",
+    "Birthday": "Дата рождения",
+    "FirstName": "Имя",
+    "LastName": "Фамилия",
+    "HeroName": "Прозвище",
+    "Avatar": "Аватар",
+    "Back": "Назад",
+    "Login": {
+      "Error": {
+        "Title": "Ошибка авторизации",
+        "Message": "Неправильные email или пароль"
+      },
+      "EmailSubmit": {
+        "Title": "Окончание регистрации",
+        "Message": "Адрес электронной почты подтверждён"
+      }
+    },
+    "Registration": {
+      "Header": "Регистрация",
+      "Success": {
+        "Message": "Для продолжения регистрации подтвердите email"
+      },
+      "Error": {
+        "Message": "Произошла ошибка, попробуйте ещё раз :)"
+      }
+    }
+  },
+  "PersonalAreaModule": {
+    "Schedule": "Расписание",
+    "PersonalArea": "Личный кабинет",
+    "Courses": "Курсы",
+    "Teachers": "Преподаватели",
+    "Rating": "Рейтинг",
+    "Settings": "Настройки",
+    "Language": "Язык",
+    "Logout": "Выйти",
+    "Birthday": "День рождения",
+    "AbilityLevel": "Уровень способности",
+    "Status": "Статус",
+    "Teacher": "Преподаватель",
+    "Student": "Студент",
+    "Skills": "Способности",
+    "PersonalSettings": "Настройки профиля",
+    "ConfirmLogout": "Вы уверены, что хотите выйти?",
+    "Confirmation": "Подтверждение",
+    "Yes": "Да",
+    "No": "Нет"
+  },
+  "ScheduleModule": {
+    "Notifications": "Уведомления",
+    "Today": "Сегодня",
+    "Tomorrow": "Завтра",
+    "Week": "Неделя"
+  },
+  "CoursesModule": {
+    "Name": "Название",
+    "Teacher": "Преподаватель",
+    "SearchingForCourses": "Поиск по курсам",
+    "Skill": "Навык",
+    "Search": "Найти",
+    "Details": "Подробнее",
+    "DayOfWeek": "День недели",
+    "Course": "Курс",
+    "Courses": "Курсы",
+    "CourseName": "Название курса",
+    "Students": "Студенты",
+    "FreePlaces": "Свободные места",
+    "Subscribe": "Записаться",
+    "Unsubscribe": "Отписаться",
+    "When": "Когда",
+    "Where": "Где",
+    "Description": "Описание",
+    "Back": "Назад",
+    "CreateCourse": "Создать курс",
+    "NumberOfPlaces": "Количество мест",
+    "LessonsForPassed": "Количество занятий",
+    "Time": "Время",
+    "CreatingNewCourse": "Создание нового курса",
+    "CourseStart": "Начало курса",
+    "CourseEnd": "Окончание курса",
+    "LessonStart": "Начало занятия",
+    "LessonEnd": "Окончание занятия",
+    "AddLesson": "Добавить занятие",
+    "RemoveLesson": "Удалить занятие",
+    "Schedule": "Расписание"
+  },
+  "DayOfWeek": {
+    "Monday": "Понедельник",
+    "Tuesday": "Вторник",
+    "Wednesday": "Среда",
+    "Thursday": "Четверг",
+    "Friday": "Пятница",
+    "Saturday": "Суббота",
+    "Sunday": "Воскресенье",
+    "MONDAY": "Понедельник",
+    "TUESDAY": "Вторник",
+    "WEDNESDAY": "Среда",
+    "THURSDAY": "Четверг",
+    "FRIDAY": "Пятница",
+    "SATURDAY": "Суббота",
+    "SUNDAY": "Воскресенье"
+  },
+  "TeachersModule": {
+    "Name": "Имя",
+    "Skill": "Способность",
+    "MyTeachersOnly": "Мои преподаватели",
+    "Teachers": "Преподаватели",
+    "Profile": "Профиль",
+    "Back": "Назад",
+    "Details": "Подробнее",
+    "Birthday": "День рождения",
+    "Skills": "Способности",
+    "Courses": "Курсы",
+    "SendAMessage": "Написать"
+  },
+  "RatingModule": {
+    "Rating": "Рейтинг"
+  },
+  "SettingsModule": {
+    "Name": "Имя",
+    "Surname": "Фамилия",
+    "Birthday": "День рождения",
+    "Save": "Сохранить"
+  },
+  "Lesson": {
+    "Start": "Время начала",
+    "End": "Время окончания",
+    "SaveTime": "Сохранить время",
+    "CancelLesson": "Отменить занятие",
+    "Save": "Сохранить",
+    "Status": "Статус",
+    "Provided": "Проведён",
+    "Canceled": "Отменён",
+    "Scheduled": "Запланирован"
+
+  }
+
+}

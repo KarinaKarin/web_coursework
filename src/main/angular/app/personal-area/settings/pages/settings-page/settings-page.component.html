@@ -1,0 +1,52 @@
+<p-card>
+  <div class="p-grid" [formGroup]="form">
+    <div class="p-col-12 p-grid">
+      <div class="p-col-12 p-md-2">
+        {{ 'AuthModule.Avatar' | translate }}:
+      </div>
+      <div class="p-col-12 p-md-5">
+        <input type="file" accept="image/*" pInputText (change)="fileSelected($event.target.files)">
+      </div>
+    </div>
+    <div class="p-col-12 p-grid">
+      <div class="p-col-12 p-md-2">
+        {{ 'AuthModule.FirstName' | translate }}:
+      </div>
+      <div class="p-col-12 p-md-5">
+        <input id="firstName" pInputText formControlName="firstName">
+      </div>
+    </div>
+    <div class="p-col-12 p-grid">
+      <div class="p-col-12 p-md-2">
+        {{ 'AuthModule.LastName' | translate }}:
+      </div>
+      <div class="p-col-12 p-md-5">
+        <input id="lastName" pInputText formControlName="lastName">
+      </div>
+    </div>
+    <div class="p-col-12 p-grid">
+      <div class="p-col-12 p-md-2">
+        {{ 'AuthModule.HeroName' | translate }}:
+      </div>
+      <div class="p-col-12 p-md-5">
+        <input id="heroName" pInputText formControlName="heroName">
+      </div>
+    </div>
+    <div class="p-col-12 p-grid">
+      <div class="p-col-12 p-md-2">
+        {{ 'AuthModule.Birthday' | translate }}:
+      </div>
+      <div class="p-col-12 p-md-5">
+        <p-calendar id="birthday" formControlName="birthday"></p-calendar>
+      </div>
+    </div>
+
+
+    <div class="p-col-12">
+      <button pButton type="button" label="{{ 'SettingsModule.Save' | translate }}"
+              (click)="saveUser()">
+      </button>
+    </div>
+
+  </div>
+</p-card>

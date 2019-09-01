@@ -1,0 +1,145 @@
+{
+  "AuthModule": {
+    "RecoveryPassword": "Password Recovery",
+    "Username": "Email",
+    "Password": "Password",
+    "ConfirmPassword": "Confirm Password",
+    "RememberMe": "Remember Me",
+    "SubmitLogin": "Login",
+    "SubmitRegistration": "Register",
+    "SubmitRecoveryPassword": "Recover",
+    "Birthday": "Birthday",
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "HeroName": "Hero Name",
+    "Avatar": "Avatar",
+    "Back": "Back",
+    "Login":{
+      "Error": {
+        "Title": "Login Error",
+        "Message": "Username Or Password Incorrect"
+      },
+      "EmailSubmit": {
+        "Title": "Registration Ended",
+        "Message": "Email address is confirmed!"
+      }
+    },
+    "Registration": {
+      "Header": "Registration",
+      "Success": {
+        "Message": "Please, confirm your email"
+      },
+      "Error": {
+        "Message": "An error has occurred, try again :)"
+      }
+    }
+  },
+  "PersonalAreaModule": {
+    "Schedule": "Schedule",
+    "PersonalArea": "Personal Area",
+    "Courses": "Courses",
+    "Teachers": "Teachers",
+    "Rating": "Rating",
+    "Settings": "Settings",
+    "Language": "Language",
+    "Logout": "Log out",
+    "Birthday": "Birthday",
+    "AbilityLevel": "Ability level",
+    "Status": "Status",
+    "Teacher": "Teacher",
+    "Student": "Student",
+    "Skills": "Skills",
+    "PersonalSettings": "Personal settings",
+    "ConfirmLogout": "Are you sure that you want to log out?",
+    "Confirmation": "Confirmation",
+    "Yes": "Yes",
+    "No": "No"
+  },
+  "ScheduleModule": {
+    "Notifications": "Notifications",
+    "Today": "Today",
+    "Tomorrow": "Tomorrow",
+    "Week": "Week"
+  },
+  "CoursesModule": {
+    "Name": "Name",
+    "Teacher": "Teacher",
+    "SearchingForCourses": "Searching for courses",
+    "Skill": "Skill",
+    "Search": "Search",
+    "Details": "Details",
+    "DayOfWeek": "Day of week",
+    "Course": "Course",
+    "Courses": "Courses",
+    "CourseName": "Course name",
+    "Students": "Students",
+    "FreePlaces": "Free places",
+    "Subscribe": "Subscribe",
+    "Unsubscribe": "Unsubscribe",
+    "When": "When",
+    "Where": "Where",
+    "Description": "Description",
+    "Back": "Back",
+    "CreateCourse": "create course",
+    "NumberOfPlaces": "Number of places",
+    "LessonsForPassed": "Lessons For Passed",
+    "Time": "Time",
+    "CreatingNewCourse": "Creating new course",
+    "CourseStart": "Course start",
+    "CourseEnd": "Course end",
+    "LessonStart": "Lesson start",
+    "LessonEnd": "Lesson end",
+    "AddLesson": "Add lesson",
+    "RemoveLesson": "Remove lesson",
+    "Schedule": "Schedule"
+  },
+  "DayOfWeek": {
+    "Monday": "Monday",
+    "Tuesday": "Tuesday",
+    "Wednesday": "Wednesday",
+    "Thursday": "Thursday",
+    "Friday": "Friday",
+    "Saturday": "Saturday",
+    "Sunday": "Sunday",
+    "MONDAY": "Monday",
+    "TUESDAY": "Tuesday",
+    "WEDNESDAY": "Wednesday",
+    "THURSDAY": "Thursday",
+    "FRIDAY": "Friday",
+    "SATURDAY": "Saturday",
+    "SUNDAY": "Sunday"
+  },
+  "TeachersModule": {
+    "Name": "Name",
+    "Skill": "Skill",
+    "MyTeachersOnly": "My teachers",
+    "Teachers": "Teachers",
+    "Profile": "Profile",
+    "Back": "Back",
+    "Details": "Details",
+    "Birthday": "Birthday",
+    "Skills": "Skills",
+    "Courses": "Courses",
+    "SendAMessage": "Send a message"
+  },
+  "RatingModule": {
+    "Rating": "Rating"
+  },
+  "SettingsModule": {
+    "Name": "Name",
+    "Surname": "Surname",
+    "Birthday": "Birthday",
+    "Save": "Save"
+  },
+  "Lesson": {
+    "Start": "Start",
+    "End": "End",
+    "SaveTime": "Save new time",
+    "CancelLesson": "Cancel lesson",
+    "Save": "Save",
+    "Status": "Status",
+    "Provided": "Provided",
+    "Canceled": "Canceled",
+    "Scheduled": "Scheduled"
+  }
+}

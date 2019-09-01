@@ -1,0 +1,36 @@
+<p-card header="{{ 'TeachersModule.Teachers' | translate }}">
+  <div class="p-grid" [formGroup]="filters">
+    <div class="p-col-12 p-md-3">
+      <input id="firstName" [placeholder]="'AuthModule.FirstName' | translate" pInputText
+             formControlName="firstName">
+    </div>
+    <div class="p-col-12 p-md-3">
+      <input id="lastName" [placeholder]="'AuthModule.LastName' | translate" pInputText
+             formControlName="lastName">
+    </div>
+    <div class="p-col-12 p-md-4">
+      <input id="ability" [placeholder]="'TeachersModule.Skill' | translate" pInputText
+             formControlName="ability">
+    </div>
+<!--    <div class="p-col-12 p-md-2">-->
+<!--      <p-checkbox binary="true"-->
+<!--                  [label]="'TeachersModule.MyTeachersOnly' | translate"-->
+<!--                  formControlName="onlyMy">-->
+<!--      </p-checkbox>-->
+<!--    </div>-->
+  </div>
+  <p-dataView [value]="teachers | async">
+    <ng-template let-teacher pTemplate="listItem">
+      <div class="p-grid">
+        <div class="p-col-12 p-md-4">
+            <a [routerLink]="['/teachers/', teacher.id]" >
+                {{ teacher?.heroName }} ({{ teacher.firstName }} {{ teacher.lastName }})
+            </a>
+        </div>
+        <div class="p-col-12 p-md-8">
+          Email: {{ teacher?.email }}
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
+</p-card>

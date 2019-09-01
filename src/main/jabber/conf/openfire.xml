@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jive>
+    <adminConsole>
+        <port>22890</port>
+        <securePort>22891</securePort>
+    </adminConsole>
+    <xmpp>
+        <domain>localhost</domain>
+    </xmpp>
+    <connectionProvider>
+        <className>org.jivesoftware.database.DefaultConnectionProvider</className>
+    </connectionProvider>
+    <database>
+        <defaultProvider>
+            <driver>org.postgresql.Driver</driver>
+            <serverURL>jdbc:postgresql://pg:5432/studs</serverURL>
+            <username encrypted="true">0d14af1a0d7305948984893dd5736795bdd43c662efde504</username>
+            <password encrypted="true">8e134831f30be1c2c4356e51bb9744be467068d48e40f50f</password>
+            <testSQL>select 1</testSQL>
+            <testBeforeUse>false</testBeforeUse>
+            <testAfterUse>false</testAfterUse>
+            <minConnections>5</minConnections>
+            <maxConnections>25</maxConnections>
+            <connectionTimeout>1.0</connectionTimeout>
+        </defaultProvider>
+    </database>
+    <setup>true</setup>
+    <provider>
+        <auth>
+            <className>org.jivesoftware.openfire.auth.JDBCAuthProvider</className>
+        </auth>
+        <user>
+            <className>org.jivesoftware.openfire.user.JDBCUserProvider</className>
+        </user>
+        <group>
+            <className>org.jivesoftware.openfire.group.JDBCGroupProvider</className>
+        </group>
+    </provider>
+    <jdbcProvider>
+        <driver>org.postgresql.Driver</driver>
+        <connectionString>jdbc:postgresql://pg/studs?user=s243163&amp;password=nvj572</connectionString>
+    </jdbcProvider>
+    <jdbcAuthProvider>
+        <passwordSQL>select password from account where username=?</passwordSQL>
+        <passwordType>plain</passwordType>
+    </jdbcAuthProvider>
+    <jdbcUserProvider>
+        <loadUserSQL>select hero_name,email from account where username=?</loadUserSQL>
+        <userCountSQL>select count(*) from account</userCountSQL>
+        <allUsersSQL>select username from account</allUsersSQL>
+        <searchSQL>select username from account where</searchSQL>
+        <usernameField>username</usernameField>
+        <nameField>hero_name</nameField>
+        <emailField>email</emailField>
+    </jdbcUserProvider>
+    <jdbcGroupProvider>
+        <groupCountSQL>select count(*) from role</groupCountSQL>
+        <allGroupsSQL>select name from role</allGroupsSQL>
+        <userGroupsSQL>select r.name from role r join account_roles ar on r.id = ar.roles_id join account a on ar.account_id = a.id where a.username=?</userGroupsSQL>
+        <descriptionSQL>select description from role where name=?</descriptionSQL>
+        <loadMembersSQL>select a.username from account a join account_roles ar on ar.account_id = a.id join role r on r.id = ar.roles_id where r.name=?</loadMembersSQL>
+        <loadAdminsSQL/>
+    </jdbcGroupProvider>
+    <locale>en</locale>
+</jive>

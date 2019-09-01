@@ -1,0 +1,95 @@
+<p-card [formGroup]="form">
+    <p-button [label]="'AuthModule.Back' | translate" routerLink="../"></p-button>
+    <div class="p-col-12">
+
+    </div>
+    <h3>{{ 'AuthModule.Registration.Header' | translate }}</h3>
+    <ng-container *ngIf="!isSubmitted; else submitTemplate">
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                <label for="email">
+                    {{ 'AuthModule.Username' | translate }}
+                </label>
+            </div>
+            <div class="p-col-12 p-md-8">
+                <input id="email" type="email" pInputText formControlName="email">
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                <label for="birthday">
+                    {{ 'AuthModule.Birthday' | translate }}
+                </label>
+            </div>
+            <div class="p-col-12 p-md-8">
+                <p-calendar id="birthday"  [maxDate]="now" formControlName="birthday"></p-calendar>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                <label for="firstName">
+                    {{ 'AuthModule.FirstName' | translate }}
+                </label>
+            </div>
+            <div class="p-col-12 p-md-8">
+                <input id="firstName" type="text" pInputText formControlName="firstName">
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                <label for="lastName">
+                    {{ 'AuthModule.LastName' | translate }}
+                </label>
+            </div>
+            <div class="p-col-12 p-md-8">
+                <input id="lastName" type="text" pInputText formControlName="lastName">
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                <label for="heroName">
+                    {{ 'AuthModule.HeroName' | translate }}
+                </label>
+            </div>
+            <div class="p-col-12 p-md-8">
+                <input id="heroName" type="text" pInputText formControlName="heroName">
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                <label for="password">
+                    {{ 'AuthModule.Password' | translate }}
+                </label>
+            </div>
+            <div class="p-col-12 p-md-8">
+                <input id="password" type="password" pInputText formControlName="password">
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                <label for="confirmPassword">
+                    {{ 'AuthModule.ConfirmPassword' | translate }}
+                </label>
+            </div>
+            <div class="p-col-12 p-md-8">
+                <input id="confirmPassword" type="password" pInputText formControlName="passwordConfirm">
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12 p-md-offset-4 p-md-8">
+                <button pButton
+                        type="button"
+                        [label]="'AuthModule.SubmitRegistration' | translate"
+                        (click)="submit()">
+                </button>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #submitTemplate>
+        <div class="p-grid">
+            <div class="p-col-12">
+                {{ 'AuthModule.Registration.Success.Message' | translate }}
+            </div>
+        </div>
+    </ng-template>
+</p-card>

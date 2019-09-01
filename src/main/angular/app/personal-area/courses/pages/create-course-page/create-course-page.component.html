@@ -1,0 +1,88 @@
+<p-card header="{{ 'CoursesModule.CreatingNewCourse' | translate }}">
+    <form [formGroup]="form" (ngSubmit)="createCourse()" class="p-grid">
+        <div class="p-col-12 p-lg-6 p-grid">
+            <div class="p-col-12 p-md-2">
+                {{ 'CoursesModule.Name' | translate }}:
+            </div>
+            <div class="p-col-12 p-md-10">
+                <input id="name" pInputText formControlName="title">
+            </div>
+            <div class="p-col-12 p-md-2">
+                {{ 'CoursesModule.Skill' | translate }}:
+            </div>
+            <div class="p-col-12 p-md-10">
+                <p-dropdown [options]="ability | async" optionLabel="title" formControlName="ability" filter="true">
+                </p-dropdown>
+            </div>
+            <div class="p-col-12 p-md-2">
+                {{ 'CoursesModule.NumberOfPlaces' | translate }}:
+            </div>
+            <div class="p-col-12 p-md-10">
+                <p-spinner size="10" [min]="0" [max]="30" formControlName="maximumStudents"></p-spinner>
+            </div>
+            <div class="p-col-12 p-md-2">
+                {{ 'CoursesModule.LessonsForPassed' | translate }}:
+            </div>
+            <div class="p-col-12 p-md-10">
+                <p-spinner size="10" [min]="0" [max]="30" formControlName="lessonsForPassed"></p-spinner>
+            </div>
+            <div class="p-col-12 p-md-2">
+                {{ 'CoursesModule.CourseStart' | translate }}:
+            </div>
+            <div class="p-col-12 p-md-10">
+                <p-calendar formControlName="courseStart"></p-calendar>
+            </div>
+            <div class="p-col-12 p-md-2">
+                {{ 'CoursesModule.CourseEnd' | translate }}:
+            </div>
+            <div class="p-col-12 p-md-10">
+                <p-calendar formControlName="courseEnd"></p-calendar>
+            </div>
+            <div class="p-col-12 p-md-2">
+                {{ 'CoursesModule.Description' | translate }}:
+            </div>
+            <div class="p-col-12 p-md-10">
+                <textarea pInputTextarea formControlName="description"></textarea>
+            </div>
+        </div>
+        <div class="p-col-12 p-lg-6 p-grid" formArrayName="abstractLessons">
+            <ng-container *ngFor="let abstractLessonsGroup of form?.controls?.abstractLessons?.controls; let i = index; let last = last;"
+                          [formGroupName]="i">
+                <div class="p-col-12 p-md-12 p-grid">
+                    <p-radioButton *ngFor="let dayOfWeek of deyOfWeekOptions"
+                                   [name]="i + 'dayOfWeek'"
+                                   [value]="dayOfWeek"
+                                   [label]="dayOfWeek?.title | translate"
+                                   class="p-col-12 p-md-3"
+                                   formControlName="dayOfWeek">
+                    </p-radioButton>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <input pInputText [placeholder]="'CoursesModule.LessonStart' | translate" formControlName="lessonStart">
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <input pInputText [placeholder]="'CoursesModule.LessonEnd' | translate" formControlName="lessonEnd">
+                </div>
+                <button *ngIf="last; else removeBtn;"
+                        pButton
+                        type="button"
+                        class="p-col-12 p-md-4"
+                        [label]="'CoursesModule.AddLesson' | translate"
+                        (click)="addAbstractLesson()">
+                </button>
+                <ng-template #removeBtn>
+                    <button pButton
+                            type="button"
+                            class="p-col-12 p-md-4 ui-button-danger"
+                            [label]="'CoursesModule.RemoveLesson' | translate"
+                            (click)="removeAbstractLesson(i)">
+                    </button>
+                </ng-template>
+            </ng-container>
+        </div>
+        <div class="p-offset-3 p-col-6 p-md-offset-4 p-md-4 p-grid">
+            <button class="p-col-12" pButton type="submit" [label]="'SettingsModule.Save' | translate">
+            </button>
+        </div>
+    </form>
+</p-card>

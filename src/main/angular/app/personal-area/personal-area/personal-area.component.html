@@ -1,0 +1,50 @@
+<p-card class="header">
+    <div class="p-grid">
+        <p-confirmDialog [acceptLabel]="'PersonalAreaModule.Yes' | translate" [rejectLabel]="'PersonalAreaModule.No' | translate"  [header]="'PersonalAreaModule.Confirmation' | translate" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+        <div class="p-col-fixed" style="width: 100px">
+            <img src="/assets/logo.png" style="height: 50px; width: 50px"/>
+        </div>
+        <div class="p-col">
+            <h1>
+                X-Mansion
+            </h1>
+        </div>
+    </div>
+</p-card>
+
+<div class="side-menu">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-2 side-menu__menu"
+             [class.p-col-fixed]="mobileQuery.matches">
+            <p-card class="side-menu__card side-menu__card--user"
+                    *ngIf="user | async as user">
+                <div class="p-grid">
+                    <div class="p-col-fixed" style="width: 50px">
+                        <img class="userImg" [src]="'/api/auth/avatar/' + user.id" style="width: 50px"  />
+                    </div>
+                    <div class="p-col-8"
+                         *ngIf="user?.heroName; else userName">
+                        {{ user.heroName }}
+                    </div>
+                    <ng-template #userName>
+                        <div class="p-col-8">
+                            {{ user.firstName }} {{ user.lastName }}
+                        </div>
+                    </ng-template>
+                </div>
+            </p-card>
+            <p-card class="side-menu__card">
+                <p-megaMenu [model]="items | async"
+                            [orientation]="mobileQuery.matches ? 'vertical' : 'horizontal'">
+                </p-megaMenu>
+            </p-card>
+        </div>
+        <div class="p-col">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+
+
+

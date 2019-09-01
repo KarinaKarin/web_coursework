@@ -1,0 +1,63 @@
+<p-card>
+  <div class="p-grid" [formGroup]="form">
+    <div class="p-col-12 p-md-10">
+      <h2>
+        {{ 'CoursesModule.Courses' | translate }}
+      </h2>
+    </div>
+    <button class="p-col-12 p-md-2"
+            routerLink="create-course"
+            pButton
+            label="{{ 'CoursesModule.CreateCourse' | translate }}"
+            *ngIf="isTeacher | async">
+    </button>
+    <div class="p-col-12 p-md-10">
+      {{ 'CoursesModule.SearchingForCourses' | translate }}
+    </div>
+
+    <div class="p-col-12 p-md-3">
+      <input id="name" [placeholder]="'CoursesModule.Name' | translate" pInputText formControlName="title">
+    </div>
+    <div class="p-col-12 p-md-3">
+      <input id="teacher" [placeholder]="'CoursesModule.Teacher' | translate" pInputText formControlName="teacher">
+    </div>
+    <div class="p-col-12 p-md-3">
+      <input id="skill" [placeholder]="'CoursesModule.Skill' | translate" pInputText formControlName="ability">
+    </div>
+    <div class="p-col-12 p-md-3">
+      <p-dropdown [options]="weekDays | async"
+                  optionLabel="name"
+                  [placeholder]="'CoursesModule.DayOfWeek' | translate"
+                  [filter]="false"
+                  formControlName="dayOfWeek">
+      </p-dropdown>
+    </div>
+  </div>
+  <p-dataView [value]="courses | async" [loading]="isLoading | async">
+    <ng-template let-course pTemplate="listItem">
+      <div class="p-grid">
+        <div class="p-col-12 p-md-2">
+          <a [routerLink]="['/courses/', course.id]">
+            {{ course?.title }}
+          </a>
+        </div>
+        <div class="p-col-12 p-md-2">
+          {{course?.ability?.title}}
+        </div>
+        <div class="p-col-12 p-md-3">
+          {{course?.teacher?.heroName}} ({{course?.teacher?.firstName}} {{course?.teacher?.lastName}})
+        </div>
+        <div class="p-col-12 p-md-3">
+          <ng-container *ngFor="let abstractLesson of course?.abstractLessons; let last = last">
+            {{ 'DayOfWeek.'+abstractLesson?.dayOfWeek | translate }}<ng-container *ngIf="!last">, </ng-container>
+          </ng-container>
+        </div>
+        <div class="p-col-12 p-md-2">
+          {{ 'CoursesModule.Students' | translate }}: {{course?.students?.length}} / {{course?.maximumStudents}}
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
+
+</p-card>
+

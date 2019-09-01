@@ -1,0 +1,51 @@
+<p-card *ngIf="course | async as course">
+  <div class="p-grid">
+    <div class="p-col-12 p-md-10">
+      <h2>{{course?.title}}</h2>
+    </div>
+    <button pButton
+            class="p-col-12 p-md-2"
+            type="button"
+            *ngIf="(isStudent | async) && (course?.maximumStudents - course?.students?.length) > 0"
+            [class.ui-button-success]="!(isSubscribed | async)"
+            [class.ui-button-danger]="(isSubscribed | async)"
+            [label]="((isSubscribed | async) ? 'CoursesModule.Unsubscribe' : 'CoursesModule.Subscribe') | translate "
+            (click)="toggleSubscribe()">
+    </button>
+    <div class="p-col-12 p-md-4">
+      {{ 'CoursesModule.Teacher' | translate }}: {{course?.teacher?.heroName}} ({{course?.teacher?.firstName}} {{course?.teacher?.lastName}})
+    </div>
+    <div class="p-col-12 p-md-4">
+      {{ 'CoursesModule.Skill' | translate }}: {{course?.ability?.title}}
+    </div>
+    <div class="p-col-12 p-md-4">
+      {{ 'CoursesModule.FreePlaces' | translate }}: {{course?.maximumStudents - course?.students?.length}} / {{course?.maximumStudents}}
+    </div>
+    <div class="p-col-12">
+      {{ 'CoursesModule.Description' | translate }}:
+      {{ course?.description }}
+    </div>
+    <div class="p-col-12" *ngFor="let abstractLesson of course?.abstractLessons">
+      {{ 'DayOfWeek.'+abstractLesson?.dayOfWeek | translate }} с {{ abstractLesson?.lessonStart }} по {{ abstractLesson?.lessonEnd }}
+    </div>
+  </div>
+  <p-tabView>
+    <p-tabPanel [header]="'CoursesModule.Schedule' | translate">
+      <p-fullCalendar [options]="options" [events]="lessons | async"></p-fullCalendar>
+    </p-tabPanel>
+    <p-tabPanel [header]="'CoursesModule.Students' | translate">
+      <p-dataView [value]="course?.students">
+        <ng-template let-student pTemplate="listItem">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+              {{ student?.heroName }} ({{ student.firstName }} {{ student.lastName }})
+            </div>
+            <div class="p-col-12 p-md-8">
+              Email: {{ student?.email }}
+            </div>
+          </div>
+        </ng-template>
+      </p-dataView>
+    </p-tabPanel>
+  </p-tabView>
+</p-card>

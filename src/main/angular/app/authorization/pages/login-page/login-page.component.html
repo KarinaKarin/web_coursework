@@ -1,0 +1,49 @@
+<p-card [formGroup]="form">
+  <div class="p-grid">
+    <div class="p-col-12 p-md-4">
+      <label for="username">
+        {{ 'AuthModule.Username' | translate }}
+      </label>
+    </div>
+    <div class="p-col-12 p-md-8">
+      <input id="username"
+             type="text"
+             pInputText
+             formControlName="username">
+    </div>
+  </div>
+  <div class="p-grid">
+    <div class="p-col-12 p-md-4">
+      <label for="password">
+        {{ 'AuthModule.Password' | translate }}
+      </label>
+    </div>
+    <div class="p-col-12 p-md-8">
+      <input id="password"
+             type="password"
+             pInputText
+             formControlName="password"
+             #passwordInput>
+    </div>
+  </div>
+  <div class="p-grid">
+    <div class="p-col-12 p-md-offset-4 p-md-4">
+      <button pButton type="button"
+              [label]="'AuthModule.SubmitLogin' | translate"
+              (click)="submit()">
+      </button>
+    </div>
+  </div>
+  <div class="p-grid">
+    <div class="p-col-12 p-md-4">
+      <a routerLink="/auth/registration">
+        {{ 'AuthModule.Registration.Header' | translate }}
+      </a>
+    </div>
+    <div class="p-col-12 p-md-8">
+      <a routerLink="/auth/recovery-password">
+        {{ 'AuthModule.RecoveryPassword' | translate }}
+      </a>
+    </div>
+  </div>
+</p-card>

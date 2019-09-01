@@ -1,0 +1,141 @@
+{
+  "$schema": "node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "school-of-people-x": {
+      "root": "",
+      "sourceRoot": "src/main/angular",
+      "projectType": "application",
+      "prefix": "spx",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "target/classes/static",
+            "index": "src/main/angular/index.html",
+            "main": "src/main/angular/main.ts",
+            "polyfills": "src/main/angular/polyfills.ts",
+            "tsConfig": "src/main/angular/tsconfig.app.json",
+            "assets": [
+              "src/main/angular/favicon.ico",
+              "src/main/angular/assets"
+            ],
+            "styles": [
+              "src/main/angular/styles.scss",
+              "node_modules/@fullcalendar/core/main.css",
+              "node_modules/@fullcalendar/daygrid/main.css",
+              "node_modules/@fullcalendar/timegrid/main.css",
+              "node_modules/@fullcalendar/list/main.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/main/angular/environments/environment.ts",
+                  "with": "src/main/angular/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "school-of-people-x:build",
+            "proxyConfig": "proxy.conf.json",
+            "port": 4200
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "school-of-people-x:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "school-of-people-x:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/main/angular/test.ts",
+            "polyfills": "src/main/angular/polyfills.ts",
+            "tsConfig": "src/main/angular/tsconfig.spec.json",
+            "karmaConfig": "src/main/angular/karma.conf.js",
+            "styles": [
+              "src/main/angular/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/main/angular/favicon.ico",
+              "src/main/angular/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/main/angular/tsconfig.app.json",
+              "src/main/angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "school-of-people-x"
+}

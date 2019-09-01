@@ -1,0 +1,104 @@
+<p-card *ngIf="course | async as course"
+        [header]="course.title">
+  <ng-container *ngIf="lesson | async as lesson">
+    <ng-container *ngIf="(isTeacher | async) && !(lesson.canceled || lesson.provided); else view" >
+      <div class="p-grid">
+        <div class="p-col-12 p-lg-6">
+          <div class="p-grid" [formGroup]="timeForm">
+            <div class="p-col-12 p-md-2">
+              {{ 'Lesson.Start' | translate }}
+            </div>
+            <div class="p-col-12 p-md-10">
+              <input pInputText formControlName="lessonStart">
+            </div>
+            <div class="p-col-12 p-md-2">
+              {{ 'Lesson.End' | translate }}
+            </div>
+            <div class="p-col-12 p-md-10">
+              <input pInputText formControlName="lessonEnd">
+            </div>
+            <div class="p-col-12 p-md-6 p-grid">
+              <button pButton
+                      class="p-col-12 ui-button-warning"
+                      [label]="'Lesson.SaveTime' | translate"
+                      (click)="changeTime(lesson.id)">
+              </button>
+            </div>
+            <div class="p-col-12 p-md-6 p-grid">
+              <button pButton
+                      class="p-col-12 ui-button-danger"
+                      [label]="'Lesson.CancelLesson' | translate"
+                      (click)="cancel(lesson.id)">
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-lg-6">
+          <div class="p-grid" [formGroup]="ratingForm" *ngIf="ratingForm?.controls.ratings">
+            <ng-container formArrayName="ratings">
+              <ng-container *ngFor="let group of ratingForm?.controls?.ratings?.controls; let i = index;" [formGroupName]="i">
+
+                <p-toggleButton class="p-col-12 p-md-2"
+                                [onLabel]="'Present'"
+                                [offLabel]="'Missing'"
+                                formControlName="isPresent">
+                </p-toggleButton>
+                <div class="p-col-12 p-md-5">
+                  {{ group?.value?.heroName }} ({{ group?.value?.firstName }} {{ group?.value?.lastName }})
+                </div>
+                <div class="p-col-12 p-md-5">
+                  <p-spinner size="10" [min]="0" [max]="10" formControlName="rating"></p-spinner>
+                </div>
+              </ng-container>
+            </ng-container>
+            <div class="p-col-12 p-md-offset-4 p-md-4 p-grid">
+              <button pButton
+                      class="p-col-12"
+                      [label]="'Lesson.Save' | translate"
+                      (click)="createRatings()">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #view>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-6 p-grid">
+          <div class="p-col-12 p-md-2">
+            {{ 'Lesson.Start' | translate }}
+          </div>
+          <div class="p-col-12 p-md-10">
+            {{ lesson.lessonStart }}
+          </div>
+          <div class="p-col-12 p-md-2">
+            {{ 'Lesson.End' | translate }}
+          </div>
+          <div class="p-col-12 p-md-10">
+            {{ lesson.lessonEnd }}
+          </div>
+          <div class="p-col-12 p-md-2">
+            {{ 'Lesson.Status' | translate }}
+          </div>
+          <div class="p-col-12 p-md-10">
+            {{ (lesson.canceled ? 'Lesson.Canceled' : lesson.provided ? 'Lesson.Provided' : 'Lesson.Scheduled') | translate  }}
+          </div>
+        </div>
+        <div class="p-col-12 p-md-6 p-grid">
+          <div class="p-col-12 p-grid" *ngFor="let rating of ratings | async">
+            <div class="p-col-12 p-md-4">
+              {{ rating?.student?.heroName }} ({{ rating?.student?.firstName }} {{ rating?.student?.lastName }})
+            </div>
+            <div class="p-col-12 p-md-8">
+              <p-rating class="student-rating"
+                        [ngModel]="rating.rating"
+                        [disabled]="true" [readonly]="true"
+                        [cancel]="false" stars="10">
+              </p-rating>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</p-card>

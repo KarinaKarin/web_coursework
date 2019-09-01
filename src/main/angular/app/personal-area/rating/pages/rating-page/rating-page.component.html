@@ -1,0 +1,22 @@
+<p-card header="{{ 'RatingModule.Rating' | translate }}">
+
+  <p-dataView [value]="ratings | async">
+    <ng-template let-rating pTemplate="listItem">
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                {{ rating?.student?.heroName }} ({{ rating?.student?.firstName }} {{ rating?.student?.lastName }})
+            </div>
+            <div class="p-col-12 p-md-8">
+                <p-rating class="student-rating"
+                          [ngModel]="rating.rating"
+                          [disabled]="true"
+                          [readonly]="true"
+                          [cancel]="false"
+                          stars="10">
+                </p-rating>
+            </div>
+        </div>
+    </ng-template>
+  </p-dataView>
+
+</p-card>

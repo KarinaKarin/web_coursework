@@ -1,0 +1,99 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+p-progressbar, [pInputText] {
+  width: 100%;
+}
+
+p-slider {
+  display: block;
+  width: 100%;
+}
+
+p-calendar {
+  display: block;
+  width: 100%;
+  .ui-calendar {
+    display: inline-block;
+    width: 100%;
+
+    input.ui-widget {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
+p-spinner {
+  display: block;
+  width: 100%;
+
+  .ui-spinner{
+    display: block;
+    width: 100%;
+
+    .ui-spinner-input {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+p-dropdown {
+  display: block;
+  width: 100%;
+
+  .ui-dropdown {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+textarea.ui-inputtext {
+  display: block;
+  width: 100%;
+  resize: vertical;
+}
+
+p-fullcalendar {
+  .fc {
+    .fc-view {
+      border: none;
+    }
+  }
+}
+
+[class*="p-col"] {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.ui-megamenu {
+  .ui-menuitem-link.ui-state-active {
+    background-color: #007ad9;
+    .ui-menuitem-text {
+      color: #ffffff;
+    }
+    //border: 1px solid #007ad9;
+  }
+}
+
+.ui-dataview-header {
+  display: none;
+}
+
+.student-rating {
+  .ui-state-disabled {
+    opacity: 1;
+  }
+}

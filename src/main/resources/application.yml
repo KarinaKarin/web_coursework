@@ -1,0 +1,40 @@
+school-of-people-x:
+    oauth:
+        client: 'school-of-people-x'
+        secret: 'school-of-people-x-secret'
+server:
+    port: 20815
+spring:
+    jackson:
+        serialization:
+            write-dates-as-timestamps: false
+#            fail-on-empty-beans: false
+    mail:
+        host: smtp.mailtrap.io
+        port: 2525
+        username: f55f4ebc863cf4
+        password: b259c48ec461c1
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+                        required: true
+    datasource:
+        username: s243163
+        password: nvj572
+        url: jdbc:postgresql://pg:5432/studs
+        platform: postgresql
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+        properties:
+            hibernate:
+                temp:
+                    use_jdbc_metadata_defaults: false
+        show-sql: true
+        hibernate:
+            ddl-auto: none
+
+external:
+    url: "http://localhost:20814"

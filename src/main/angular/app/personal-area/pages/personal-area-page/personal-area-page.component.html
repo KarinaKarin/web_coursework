@@ -1,0 +1,69 @@
+<p-card *ngIf="user | async as user">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-2" *ngIf="isStudent | async">
+            {{ 'PersonalAreaModule.Status' | translate }}: {{ 'PersonalAreaModule.Student' | translate }}
+        </div>
+        <div class="p-col-12 p-md-2" *ngIf="isTeacher | async">
+            {{ 'PersonalAreaModule.Status' | translate }}: {{ 'PersonalAreaModule.Teacher' | translate }}
+        </div>
+        <div class="p-col-12 p-md-8" *ngIf="(isStudent | async) && (rating | async)">
+            <p-rating class="student-rating"
+                      [ngModel]="(rating | async)?.rating"
+                      readonly="true"
+                      stars="10"
+                      [cancel]="false"
+                      disabled="true">
+            </p-rating>
+        </div>
+        <div class="p-col-12">
+            {{ 'PersonalAreaModule.Birthday' | translate }}: {{ user?.birthday | date }}
+        </div>
+        <div class="p-col-12">
+            <b>
+            {{  'PersonalAreaModule.Skills' | translate }}:
+            </b>
+        </div>
+        <div class="p-col-12 p-grid" *ngFor="let abilityLevel of (abilityLevels | async)">
+            <div class="p-col-12 p-md-2">
+                {{ abilityLevel.ability.title }}:
+            </div>
+            <div class="p-col-12 p-md-10">
+                <p-progressBar [value]="abilityLevel.level"></p-progressBar>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="isStudent | async">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <b>
+                    {{  'PersonalAreaModule.Courses' | translate }}:
+                </b>
+            </div>
+        </div>
+        <p-dataView [value]="courses | async" [loading]="isLoading | async">
+            <ng-template let-course pTemplate="listItem">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-2">
+                        <a [routerLink]="['/courses/', course.id]">
+                            {{ course?.title }}
+                        </a>
+                    </div>
+                    <div class="p-col-12 p-md-2">
+                        {{course?.ability?.title}}
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        {{course?.teacher?.heroName}} ({{course?.teacher?.firstName}} {{course?.teacher?.lastName}})
+                    </div>
+                    <div class="p-col-12 p-md-3">
+                        <ng-container *ngFor="let abstractLesson of course?.abstractLessons; let last = last">
+                            {{ 'DayOfWeek.'+abstractLesson?.dayOfWeek | translate }}<ng-container *ngIf="!last">, </ng-container>
+                        </ng-container>
+                    </div>
+                    <div class="p-col-12 p-md-2">
+                        {{ 'CoursesModule.Students' | translate }}: {{course?.students?.length}} / {{course?.maximumStudents}}
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+    </ng-container>
+</p-card>
